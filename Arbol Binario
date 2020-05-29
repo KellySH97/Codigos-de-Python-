@@ -1,0 +1,85 @@
+class Nodo:
+	def _init_(self, nombre=None, cedula=None, izq=None, der=None):
+		self.nombre = nombre
+		self.cedula = cedula
+		self.izq = izq
+		self.der = der
+
+	def _str_(self):
+		return"& &" %(self.nombre. self.cedula)
+
+
+class aBinarios:
+	def _init_(self):
+		self.raiz = None
+
+
+	def agregar(self, elemento):
+		if self.raiz== None:
+			self.raiz = elemento
+		else:
+			aux = self.raiz
+			padre = None
+			while aux != None:
+				padre = aux
+				if int (elemento.cedula) >= int(aux.cedula):
+					aux = aux.der
+				else:
+					aux = aux.izq
+				if int (elemento.cedula) >= int(padre.cedula):
+					aux = aux.der
+				else:
+					padre.izq = elemento
+
+	def preorden(self, elemento):
+		if elemento!= None:
+			print (elemento)
+			self.preorden(elemento.izq)	
+			self.preorden(elemento.der)
+
+
+
+	def postorden(self, elemento):
+		if elemento!= None:
+			self.postorden(elemento.izq)	
+			self.postorden(elemento.der)
+			print (elemento)
+
+	def inorden(self, elemento):
+		if elemento!= None:
+			self.inorden(elemento.izq)
+			print (elemento)	
+			self.inorden(elemento.der)
+			print (elemento)
+
+	def getRaiz(self):
+		return self.raiz
+
+if _name_=="_main_":
+	ad = aBinarios()
+	while(True):
+		print("---MENU---\n"+
+			"1.Agregar\n"+
+			"2.Preorden\n"+
+			"3.Postorden\n"+
+			"4. Inorden\n")
+
+
+		num = input ("Ingrese la opcion")
+		if num == "1":
+			nombre = input ("Ingrese el nombre")
+			cedula = input ("Ingrese la cedula")
+			nod = Nodo()
+			ab.agregar() 
+
+			elif nu, == "2":
+				print("Imprimiendo por Preorden")
+				ab.preorden(ab.getRaiz())
+
+			elif nu, == "3":
+				print("Imprimiendo por Postorden")
+				ab.postorden(ab.getRaiz())
+
+			elif nu, == "4":	
+				print("Imprimiendo por Inorden")
+				ab.inorden(ab.getRaiz())
